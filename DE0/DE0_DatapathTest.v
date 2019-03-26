@@ -1,5 +1,5 @@
 module DE0_DatapathTest(CLOCK_50, LEDG, SW, KEY, GPIO_0, GPIO_1, HEX0, HEX1, HEX2, HEX3);
-	// connection names for DE0 FPGA boad - names must match pin assignment file
+	// connection names for DE0 FPGA board - names must match pin assignment file
 	input CLOCK_50;
 	input [9:0] SW;
 	input [2:0] KEY;
