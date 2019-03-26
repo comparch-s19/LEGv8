@@ -2,9 +2,9 @@ module DE0_DatapathTest(CLOCK_50, LEDG, SW, KEY, GPIO_0, GPIO_1, HEX0, HEX1, HEX
 	// connection names for DE0 FPGA board - names must match pin assignment file
 	input CLOCK_50;
 	input [9:0] SW;
-	input [2:0] KEY;
-	inout [31:0] GPIO_1;
-	output [31:0] GPIO_0;
+	input [2:0] KEY;  ////// CALLED BUTTON IN SOME PIN ASSIGNMENT FILES, CHANGE IF NEEDED
+	inout [31:0] GPIO_1; ////// CALLED GPIO1_D IN SOME PIN ASSIGNMENT FILES, CHANGE IF NEEDED
+	output [31:0] GPIO_0; ////// CALLED GPIO0_D IN SOME PIN ASSIGNMENT FILES, CHANGE IF NEEDED
 	output [9:0] LEDG;
 	output [6:0] HEX0, HEX1, HEX2, HEX3;
 	
@@ -59,7 +59,7 @@ module DE0_DatapathTest(CLOCK_50, LEDG, SW, KEY, GPIO_0, GPIO_1, HEX0, HEX1, HEX
 	// display lower 16 bits of address on hex 3:0 (on GPIO board)
 	quad_7seg_decoder address_decoder_low (address[15:0], h3, h2, h1, h0);
 	// display lower 16 bits of data on HEX 3:0 (on DE0 itself)
-	quad_7seg_decoder data_decoder (address[15:0], hex3, hex2, hex1, hex0);
+	quad_7seg_decoder data_decoder (data[15:0], hex3, hex2, hex1, hex0);
 	assign HEX0 = ~hex0; // each signal must be inverted because DE0 hex's are active low
 	assign HEX1 = ~hex1;
 	assign HEX2 = ~hex2;
